@@ -6,8 +6,7 @@ export const profile = {
   phone: "+2348051167192",
   photo:
     "https://raw.githubusercontent.com/Leanstix/AleshinloyeOlamilekan.github.io/main/images/HeadSHot.png",
-  resume:
-    "https://raw.githubusercontent.com/Leanstix/AleshinloyeOlamilekan.github.io/main/images/AleshinloyeOlamilekan_Resume.pdf",
+  resume: "resume/",
   github: "https://github.com/Leanstix",
   linkedin: "https://www.linkedin.com/in/aleshinloye-olamilekan-765855218",
   twitter: "https://x.com/Aleshinloy7974",
