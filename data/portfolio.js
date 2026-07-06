@@ -1,6 +1,6 @@
 export const profile = {
   name: "Aleshinloye Olamilekan",
-  role: "Backend Engineer",
+  role: "Full Stack Engineer",
   location: "Ibadan, Oyo State, Nigeria",
   email: "leanstixx@gmail.com",
   phone: "+2348051167192",
@@ -12,99 +12,113 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/aleshinloye-olamilekan-765855218",
   twitter: "https://x.com/Aleshinloy7974",
   headline:
-    "I build backend systems that move money, rank data, and turn noisy signals into useful decisions.",
+    "I build polished product interfaces and the backend systems that make them reliable.",
   summary:
-    "Backend-focused full stack engineer with 4+ years of experience building scalable APIs, payment infrastructure, marketplace workflows, search systems, AI/ML pipelines, operational dashboards, and production-grade web platforms."
+    "Full stack engineer with 4+ years of experience shipping React, Next.js, TypeScript, Django, FastAPI, NestJS, PostgreSQL, payment workflows, multi-tenant platforms, AI/ML systems, dashboards, mobile-facing product flows, and production APIs."
 };
 
 export const metrics = [
-  { value: "4+ yrs", label: "Engineering experience" },
-  { value: "2026", label: "HealthTrace Hackathon winner" },
-  { value: "FastAPI", label: "Search and intelligence services" },
-  { value: "PayPal", label: "Payments, webhooks, payouts" }
+  { value: "4+ yrs", label: "Full stack delivery" },
+  { value: "React", label: "Interfaces, dashboards, product flows" },
+  { value: "APIs", label: "Django, FastAPI, NestJS, PostgreSQL" },
+  { value: "2026", label: "HealthTrace Hackathon winner" }
 ];
 
 export const capabilities = [
   {
-    title: "APIs and Platforms",
+    title: "Frontend Product Engineering",
     icon: "01",
     body:
-      "REST APIs, authentication, authorization, multi-tenant data models, admin workflows, reporting endpoints, and production service boundaries."
+      "React, Next.js, TypeScript, responsive layouts, dashboard workflows, form-heavy journeys, loading states, error states, validation flows, and reusable UI components."
   },
   {
-    title: "Payments and Operations",
+    title: "Backend and API Systems",
     icon: "02",
     body:
-      "Payment capture, webhook verification, duplicate safeguards, payout-state handling, support automation, and audit-friendly transaction records."
+      "Django, FastAPI, NestJS, REST APIs, authentication, authorization, PostgreSQL data modeling, Redis-backed performance, payment flows, and service reliability."
   },
   {
-    title: "AI/ML Intelligence",
+    title: "End-to-End Product Delivery",
     icon: "03",
     body:
-      "Risk scoring, anomaly detection, model scoring, LLM-assisted workflows, Langfuse tracing, and dashboard-ready intelligence outputs."
+      "Turn product requirements and Figma designs into shipped interfaces, integrate them with production APIs, debug across the stack, and keep user journeys stable."
   }
 ];
 
 export const projects = [
   {
-    title: "Lafiya - Infectious Disease Surveillance Platform",
-    tag: "Hackathon winner - Backend, ML and intelligence",
+    title: "Visitor Management System",
+    tag: "Next.js - Django - PostgreSQL - Multi-tenant SaaS",
     featured: true,
+    description:
+      "Designed and delivered a multi-tenant platform for estates and organizations, covering public pre-registration, admin dashboards, visitor registration, check-in/out, staff management, student management, reporting, and access-control workflows.",
+    bullets: [
+      "Built frontend-facing dashboard workflows for visitor histories, reporting screens, search flows, admin actions, and operational views.",
+      "Designed secure REST APIs, tenant-aware PostgreSQL models, access boundaries, and optimized reporting/search queries.",
+      "Improved responsiveness with Redis-backed patterns and supported deployment, troubleshooting, and production reliability on AWS/Render."
+    ]
+  },
+  {
+    title: "Kenkeputa / VendorizeMe Product Systems",
+    tag: "React Native - TypeScript - Payments - Marketplace APIs",
+    description:
+      "Build and maintain production marketplace features across vendor/customer journeys, bookings, payment verification, support flows, mobile-connected APIs, and operational automations.",
+    bullets: [
+      "Shipped customer-facing React Native and TypeScript features from Figma to production with clean UI state handling and API integration.",
+      "Led Stripe to PayPal migration, including payment capture, webhook verification, duplicate safeguards, payout states, and transaction audit records.",
+      "Built a standalone FastAPI search microservice using PostgreSQL full-text search, filters, ranking logic, autocomplete, health checks, Docker, and Render deployment."
+    ]
+  },
+  {
+    title: "Lafiya - Infectious Disease Surveillance Platform",
+    tag: "FastAPI - ML intelligence - WebSocket dashboards",
     description:
       "Built the ML model and intelligence layers for a FastAPI-based public health surveillance platform designed for low-connectivity environments.",
     bullets: [
-      "Direct ingestion and encrypted offline relay ingestion.",
-      "Exposure risk, vitals anomaly detection, outbreak zone analysis, and alert prioritization.",
-      "Contact graph construction, superspreader ranking, BFS transmission simulation, WebSocket updates, and intelligence snapshots."
+      "Direct ingestion and encrypted offline relay ingestion for Tracy ecosystem signals.",
+      "Exposure risk, vitals anomaly detection, outbreak zone analysis, contact network analysis, and alert prioritization.",
+      "Contact graph construction, superspreader ranking, BFS transmission simulation, WebSocket updates, and dashboard-ready intelligence snapshots."
     ]
   },
   {
-    title: "VendorizeMe Native Search Engine",
-    tag: "FastAPI - PostgreSQL - Search infrastructure",
+    title: "AI Resume Platform",
+    tag: "React - API-integrated forms - Responsive UI",
     description:
-      "Built a standalone FastAPI search microservice to remove dependency on an external search provider and give the marketplace its own reliable search layer.",
-    bullets: [
-      "Full-text search, ILIKE fallback, filters, distance logic, ranking scores, boosts, and penalties.",
-      "Optional LLM-assisted intent parsing while PostgreSQL remains the final executor.",
-      "Docker, Render deployment, health checks, API-key protection, and contract tests."
-    ]
-  },
-  {
-    title: "Visitor Management System",
-    tag: "Django - PostgreSQL - AWS",
-    description:
-      "Designed and deployed a multi-tenant platform for estates and organizations, covering visitor registration, check-in/out, staff management, student management, and admin reporting.",
-    bullets: [
-      "Tenant-aware PostgreSQL data models and access boundaries.",
-      "Secure REST workflows, reporting queries, dashboards, and operational search.",
-      "Redis caching, AWS deployment, and production troubleshooting."
-    ]
+      "Built responsive data-collection workflows for an AI-powered resume generation platform, focusing on structured input, validation, backend integration, loading states, error states, and reliable submission flows."
   },
   {
     title: "Flow - University Social Platform",
-    tag: "Social platform - Real-time product logic",
+    tag: "Social product - Real-time interaction workflows",
     description:
-      "Designed backend and product logic for a university social platform with feeds, messaging, user discovery, and interest-based campus interactions.",
+      "Designed messaging, feeds, user discovery, and interaction logic for an interest-based university social networking platform, including scalable communication and campus-community product patterns.",
     link: "https://flow-aleshinloye-olamilekan-s-projects.vercel.app"
+  },
+  {
+    title: "FashionFi - Fashion Marketplace",
+    tag: "Marketplace UX - Product planning - Hackathon leadership",
+    description:
+      "Led and contributed to a fashion-commerce marketplace concept involving user-facing product flows, interface planning, feature breakdown, implementation coordination, and scalable application structure."
   }
 ];
 
 export const experience = [
   {
     period: "Nov 2025 - Present",
-    title: "Full Stack Engineer - Backend, Payments, Search and Mobile Product",
+    title: "Full Stack Engineer - Product, Payments, Search and Mobile",
     company: "Kenkeputa - Houston, Texas (Remote)",
     body: [
-      "Build backend services for marketplace workflows across users, vendors, bookings, payments, payouts, media uploads, notifications, support flows, and mobile-connected product features.",
-      "Led Stripe to PayPal payment migration, implemented PayPal capture logic, webhook verification, duplicate transaction safeguards, payout states, audit records, Datadog API logging, and Firebase Crashlytics visibility."
+      "Build and maintain production features supporting marketplace workflows, vendor/customer actions, payment verification, event-service flows, mobile application journeys, media uploads, notifications, and support operations.",
+      "Ship customer-facing React Native and TypeScript features from Figma to production while designing predictable API behaviors and debugging state transitions across frontend, mobile, payment, database, and backend layers.",
+      "Led Stripe to PayPal payment migration and implemented PayPal capture logic, webhook verification, duplicate transaction safeguards, payout states, audit records, Zendesk automation, Datadog API logging, and Firebase Crashlytics visibility."
     ]
   },
   {
     period: "May 2025 - Present",
-    title: "Python/Django Full Stack Engineer",
+    title: "Full Stack Engineer - React/Next.js and Django Platform",
     company: "Xeta Digital - Lagos, Nigeria (Remote)",
     body: [
-      "Designed and deployed a multi-tenant Visitor Management System with secure REST APIs, PostgreSQL access boundaries, dashboard reporting, Redis-backed performance improvements, and AWS deployment support."
+      "Designed and deployed a multi-tenant Visitor Management System with responsive web workflows, tenant-aware dashboards, admin interfaces, operational search, reporting screens, and secure REST APIs.",
+      "Architected PostgreSQL access boundaries, optimized high-frequency dashboard queries, introduced Redis-backed performance improvements, and supported AWS deployment and production troubleshooting."
     ]
   },
   {
@@ -112,31 +126,47 @@ export const experience = [
     title: "Frontend Engineer Intern - AI Resume Platform",
     company: "AnalogueShifts - Lagos, Nigeria / Remote",
     body: [
-      "Built dynamic data-collection workflows for an AI resume generation platform and integrated frontend screens with backend APIs, including loading, error, and validation states."
+      "Built dynamic data-collection workflows for an AI resume generation platform, reusable UI patterns, responsive screens, backend API integrations, and loading, error, and validation states."
+    ]
+  },
+  {
+    period: "Sep 2021 - Jul 2024",
+    title: "Backend Developer and ICT Systems Engineer",
+    company: "Eccowas Cosmopolitan College - Ogun, Nigeria (Hybrid)",
+    body: [
+      "Designed backend architecture, reporting logic, API integrations, and operational workflows for a live school-management environment used by administrators, teachers, and students."
     ]
   }
 ];
 
 export const skills = [
+  "React",
+  "Next.js",
+  "React Native",
+  "TypeScript",
+  "JavaScript",
+  "HTML5",
+  "CSS3",
+  "Tailwind CSS",
+  "Material UI",
+  "Responsive UI",
+  "API Integration",
   "Python",
-  "FastAPI",
   "Django",
   "Django REST Framework",
+  "FastAPI",
   "Node.js",
   "NestJS",
-  "JavaScript",
-  "TypeScript",
   "PostgreSQL",
   "Redis",
+  "MySQL",
   "SQLAlchemy",
   "Prisma",
   "Docker",
   "AWS",
   "Render",
   "WebSockets",
-  "React",
-  "Next.js",
-  "Tailwind CSS",
+  "Payments",
   "Langfuse",
   "Groq"
 ];
