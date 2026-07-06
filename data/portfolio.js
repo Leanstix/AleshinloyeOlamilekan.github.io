@@ -12,7 +12,7 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/aleshinloye-olamilekan-765855218",
   twitter: "https://x.com/Aleshinloy7974",
   headline:
-    "I build polished product interfaces and the backend systems that make them reliable.",
+    "I build polished interfaces and reliable full-stack systems.",
   summary:
     "Full stack engineer with 4+ years of experience shipping React, Next.js, TypeScript, Django, FastAPI, NestJS, PostgreSQL, payment workflows, multi-tenant platforms, AI/ML systems, dashboards, mobile-facing product flows, and production APIs."
 };
