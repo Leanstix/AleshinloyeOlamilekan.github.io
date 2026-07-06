@@ -30,7 +30,7 @@ function Hero() {
     <section id="home" className="hero sectionGrid">
       <div className="heroCopy">
         <p className="eyebrow">
-          Backend Engineer - Python/FastAPI - Payments - AI/ML Systems
+          Full Stack Engineer - React/Next.js - Django/FastAPI - Payments - AI/ML
         </p>
         <h1>{profile.headline}</h1>
         <p className="heroLede">{profile.summary}</p>
@@ -50,12 +50,12 @@ function Hero() {
       <aside className="heroCard" aria-label="Profile summary">
         <img src={profile.photo} alt={profile.name} />
         <div>
-          <p className="statusDot">Available for backend and full stack roles</p>
-          <h2>Software engineer based in {profile.location}.</h2>
+          <p className="statusDot">Available for full stack, frontend, and backend roles</p>
+          <h2>{profile.role} based in {profile.location}.</h2>
           <p>
-            Currently building production marketplace systems, payment flows,
-            search infrastructure, mobile-connected APIs, and AI-assisted
-            backend intelligence.
+            Currently building production marketplace interfaces, mobile-facing
+            flows, payment systems, search infrastructure, dashboards,
+            APIs, and AI-assisted product intelligence.
           </p>
         </div>
       </aside>
@@ -80,7 +80,7 @@ function Capabilities() {
   return (
     <section className="section intro">
       <p className="sectionKicker">What I do</p>
-      <h2>Backend systems with product sense.</h2>
+      <h2>Full stack systems with product sense.</h2>
       <div className="capabilityGrid">
         {capabilities.map((item) => (
           <article key={item.title}>
@@ -99,7 +99,7 @@ function Projects() {
     <section id="work" className="section">
       <div className="sectionHeading">
         <p className="sectionKicker">Selected work</p>
-        <h2>Projects with real backend depth.</h2>
+        <h2>Projects across product, platform, and intelligence.</h2>
       </div>
       <div className="projectGrid">
         {projects.map((project) => (
@@ -155,7 +155,7 @@ function Stack() {
     <section id="stack" className="section stackSection">
       <div>
         <p className="sectionKicker">Technical stack</p>
-        <h2>Tools I use to ship reliable systems.</h2>
+        <h2>Tools I use to ship across UI, APIs, and infrastructure.</h2>
       </div>
       <div className="stackCloud">
         {skills.map((skill) => (
@@ -184,7 +184,7 @@ function Contact() {
   return (
     <section id="contact" className="section contactSection">
       <p className="sectionKicker">Contact</p>
-      <h2>Need backend firepower for a serious product?</h2>
+      <h2>Need a full stack engineer who can move across product and platform?</h2>
       <p>
         Send a message and I will respond with clear next steps, availability,
         and the best way to move your project forward.
@@ -207,7 +207,7 @@ function Contact() {
 function Footer() {
   return (
     <footer className="site-footer">
-      <p>{profile.name} - Backend Engineer</p>
+      <p>{profile.name} - {profile.role}</p>
       <div>
         <a href={profile.twitter}>Twitter</a>
         <a href={profile.github}>GitHub</a>
