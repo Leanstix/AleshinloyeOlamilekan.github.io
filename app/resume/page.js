@@ -1,4 +1,5 @@
-import { experience, profile, projects, proof, skills } from "../../data/portfolio";
+import { experience, profile, projects, proof } from "../../data/portfolio";
+import styles from "./resume.module.css";
 
 export const metadata = {
   title: "Resume - Aleshinloye Olamilekan",
@@ -34,11 +35,11 @@ const groupedSkills = [
       "REST APIs",
       "Authentication",
       "Authorization",
-      "WebSockets"
+      "Webhooks"
     ]
   },
   {
-    title: "Data, Cloud and Systems",
+    title: "Data, Cloud and AI Systems",
     items: [
       "PostgreSQL",
       "Redis",
@@ -50,14 +51,15 @@ const groupedSkills = [
       "Render",
       "Payments",
       "Langfuse",
-      "Groq"
+      "Groq",
+      "ML Pipelines"
     ]
   }
 ];
 
 function ResumeHeader() {
   return (
-    <header className="resumeHeader">
+    <header className={styles.resumeHeader}>
       <a className="brand" href="../" aria-label="Back to portfolio home">
         <span className="brandMark">AO</span>
         <span>{profile.name}</span>
@@ -74,7 +76,7 @@ function ResumeHeader() {
 
 function Section({ title, children }) {
   return (
-    <section className="resumeSection">
+    <section className={styles.resumeSection}>
       <h2>{title}</h2>
       {children}
     </section>
@@ -83,16 +85,16 @@ function Section({ title, children }) {
 
 export default function ResumePage() {
   return (
-    <div className="siteShell resumePage">
+    <div className={`siteShell ${styles.resumePage}`}>
       <ResumeHeader />
 
-      <main className="resumeDocument">
-        <section className="resumeHero">
+      <main className={styles.resumeDocument}>
+        <section className={styles.resumeHero}>
           <p className="sectionKicker">Resume</p>
           <h1>{profile.name}</h1>
-          <p className="resumeRole">{profile.role}</p>
-          <p className="resumeSummary">{profile.summary}</p>
-          <div className="resumeContact">
+          <p className={styles.resumeRole}>{profile.role}</p>
+          <p className={styles.resumeSummary}>{profile.summary}</p>
+          <div className={styles.resumeContact}>
             <span>{profile.location}</span>
             <a href={`mailto:${profile.email}`}>{profile.email}</a>
             <a href={`tel:${profile.phone}`}>{profile.phone}</a>
@@ -102,15 +104,15 @@ export default function ResumePage() {
         </section>
 
         <Section title="Core Strengths">
-          <div className="resumeStrengths">
-            <div>Frontend product engineering with React, Next.js, TypeScript, React Native, responsive dashboards, form-heavy workflows, and clean UI state handling.</div>
-            <div>Backend and API engineering with Django, FastAPI, NestJS, PostgreSQL, Redis, authentication, authorization, payment workflows, and production reliability.</div>
-            <div>End-to-end delivery across product requirements, Figma implementation, API integration, debugging, deployment, monitoring, and stakeholder communication.</div>
+          <div className={styles.resumeStrengths}>
+            <div>Frontend product engineering with React, Next.js, TypeScript, React Native, responsive dashboards, form-heavy workflows, reusable UI patterns, and clean UI state handling.</div>
+            <div>Backend and API engineering with Django, FastAPI, NestJS, PostgreSQL, Redis, authentication, authorization, webhooks, payment workflows, and production reliability.</div>
+            <div>End-to-end delivery across product requirements, Figma implementation, API integration, debugging, deployment, monitoring, stakeholder communication, and AI-enabled product systems.</div>
           </div>
         </Section>
 
         <Section title="Professional Experience">
-          <div className="resumeTimeline">
+          <div className={styles.resumeTimeline}>
             {experience.map((item) => (
               <article key={`${item.company}-${item.period}`}>
                 <div>
@@ -131,7 +133,7 @@ export default function ResumePage() {
         </Section>
 
         <Section title="Selected Projects and Technical Work">
-          <div className="resumeProjects">
+          <div className={styles.resumeProjects}>
             {projects.map((project) => (
               <article key={project.title}>
                 <p className="tag">{project.tag}</p>
@@ -150,7 +152,7 @@ export default function ResumePage() {
         </Section>
 
         <Section title="Technical Skills">
-          <div className="resumeSkillGroups">
+          <div className={styles.resumeSkillGroups}>
             {groupedSkills.map((group) => (
               <article key={group.title}>
                 <h3>{group.title}</h3>
@@ -165,7 +167,7 @@ export default function ResumePage() {
         </Section>
 
         <Section title="Education and Recognition">
-          <div className="resumeProof">
+          <div className={styles.resumeProof}>
             {proof.map((item) => (
               <article key={item.title}>
                 <p className="sectionKicker">{item.label}</p>
