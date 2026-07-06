@@ -50,12 +50,11 @@ function Hero() {
       <aside className="heroCard" aria-label="Profile summary">
         <img src={profile.photo} alt={profile.name} />
         <div>
-          <p className="statusDot">Available for full stack, frontend, and backend roles</p>
-          <h2>{profile.role} based in {profile.location}.</h2>
+          <p className="statusDot">Open to full stack roles</p>
+          <h2>{profile.role} in Ibadan, Nigeria.</h2>
           <p>
-            Currently building production marketplace interfaces, mobile-facing
-            flows, payment systems, search infrastructure, dashboards,
-            APIs, and AI-assisted product intelligence.
+            I ship React/Next.js interfaces, production APIs, payment flows,
+            dashboards, and AI-enabled product systems.
           </p>
         </div>
       </aside>
