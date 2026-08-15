@@ -102,24 +102,42 @@ function Projects() {
         <h2>Projects across product, platform, and intelligence.</h2>
       </div>
       <div className="projectGrid">
-        {projects.map((project) => (
-          <article
-            className={`projectCard ${project.featured ? "featured" : ""}`}
-            key={project.title}
-          >
-            <p className="tag">{project.tag}</p>
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
-            {project.bullets ? (
-              <ul>
-                {project.bullets.map((bullet) => (
-                  <li key={bullet}>{bullet}</li>
-                ))}
-              </ul>
-            ) : null}
-            {project.link ? <a href={project.link}>Visit app</a> : null}
-          </article>
-        ))}
+        {projects.map((project) => {
+          const links = project.links ||
+            (project.link ? [{ label: "Visit app", href: project.link }] : []);
+
+          return (
+            <article
+              className={`projectCard ${project.featured ? "featured" : ""}`}
+              key={project.title}
+            >
+              <p className="tag">{project.tag}</p>
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              {project.bullets ? (
+                <ul>
+                  {project.bullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+              ) : null}
+              {links.length ? (
+                <div className="projectLinks">
+                  {links.map((link) => (
+                    <a
+                      href={link.href}
+                      key={link.href}
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              ) : null}
+            </article>
+          );
+        })}
       </div>
     </section>
   );
