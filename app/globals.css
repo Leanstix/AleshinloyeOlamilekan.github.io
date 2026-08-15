@@ -365,6 +365,12 @@ h3 {
   color: var(--accent-2);
   display: inline-block;
   font-weight: 800;
+}
+
+.projectLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
   margin-top: 18px;
 }
 
