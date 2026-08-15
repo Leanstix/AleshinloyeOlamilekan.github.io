@@ -13,12 +13,12 @@ export const profile = {
   headline:
     "I build polished interfaces and reliable full-stack systems.",
   summary:
-    "Full stack engineer with 4+ years of experience shipping React, Next.js, TypeScript, React Native, Django, FastAPI, NestJS, PostgreSQL, payment workflows, multi-tenant platforms, AI/ML systems, dashboards, mobile-facing product flows, and production APIs."
+    "Full stack engineer with 4+ years of experience shipping React, Next.js, TypeScript, React Native, Django, FastAPI, NestJS, PostgreSQL, payment workflows, multi-tenant platforms, open-source developer tooling, AI/ML systems, dashboards, mobile-facing product flows, and production APIs."
 };
 
 export const metrics = [
   { value: "4+ yrs", label: "Full stack delivery" },
-  { value: "React", label: "Interfaces, dashboards, product flows" },
+  { value: "PyPI", label: "Published developer tooling" },
   { value: "APIs", label: "Django, FastAPI, NestJS, PostgreSQL" },
   { value: "AI/ML", label: "Hackathons, search, intelligence layers" }
 ];
@@ -46,9 +46,30 @@ export const capabilities = [
 
 export const projects = [
   {
+    title: "pytest-authz-matrix",
+    tag: "Open Source - Python - pytest - Django REST Framework - Security",
+    featured: true,
+    description:
+      "Built and published an open-source pytest plugin that turns role, ownership, and tenant-isolation policies into executable authorization contracts for Python web APIs.",
+    bullets: [
+      "Designed a YAML contract format that expands actor-by-resource relationships into independent allow, deny, conceal, and unauthenticated test cases.",
+      "Added Django REST Framework route discovery, missing-authorization coverage reports, JSON output, and configurable CI coverage gates.",
+      "Packaged and released version 0.1.0 on PyPI with typed Python APIs, documentation, integration examples, Trusted Publishing, and CI validation across Python 3.10 through 3.13."
+    ],
+    links: [
+      {
+        label: "Install from PyPI",
+        href: "https://pypi.org/project/pytest-authz-matrix/"
+      },
+      {
+        label: "View source",
+        href: "https://github.com/Leanstix/pytest-authz-matrix"
+      }
+    ]
+  },
+  {
     title: "Visitor Management System",
     tag: "Next.js - Django - PostgreSQL - Multi-tenant SaaS",
-    featured: true,
     description:
       "Designed and delivered a multi-tenant platform for estates and organizations, covering public pre-registration, admin dashboards, visitor registration, check-in/out, staff management, student management, reporting, and access-control workflows.",
     bullets: [
@@ -211,6 +232,10 @@ export const skills = [
   "Render",
   "Git",
   "GitHub",
+  "GitHub Actions",
+  "pytest",
+  "Python Packaging",
+  "Security Testing",
   "WebSockets",
   "Payments",
   "Langfuse",
