@@ -1,225 +1,209 @@
 .resumePage {
-  padding-bottom: 80px;
-  padding-top: 110px;
+  padding-top: 0;
+  padding-bottom: 60px;
 }
-
 .resumeHeader {
-  align-items: center;
-  backdrop-filter: blur(18px);
-  background: rgba(7, 7, 7, 0.78);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 999px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  left: 50%;
-  max-width: 1136px;
-  padding: 10px 12px;
-  position: fixed;
-  top: 18px;
-  transform: translateX(-50%);
-  width: calc(100% - 44px);
-  z-index: 20;
+  gap: 20px;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
 }
-
 .resumeDocument {
-  display: grid;
-  gap: 28px;
+  max-width: 960px;
+  margin: 60px auto 0;
 }
-
-.resumeHero,
-.resumeSection {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.035));
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
-  padding: 28px;
-}
-
 .resumeHero {
-  position: relative;
-  overflow: hidden;
+  padding-bottom: 35px;
+  border-bottom: 1px solid var(--line);
 }
-
-.resumeHero::before {
-  background: radial-gradient(circle, rgba(215, 255, 56, 0.28), transparent 58%);
-  content: "";
-  height: 220px;
-  pointer-events: none;
-  position: absolute;
-  right: -80px;
-  top: -90px;
-  width: 220px;
-}
-
 .resumeHero h1 {
-  font-size: clamp(2.4rem, 6vw, 5rem);
-  letter-spacing: 0;
-  line-height: 1;
-  margin: 0;
-  position: relative;
+  font-size: clamp(34px, 5vw, 58px);
+  letter-spacing: -2px;
+  line-height: 1.1;
 }
-
 .resumeRole {
-  color: #d7ff38;
-  font-size: 1.1rem;
-  font-weight: 900;
-  margin-top: 12px;
-  position: relative;
+  color: var(--accent);
+  font-size: 18px;
+  margin-top: 15px;
 }
-
 .resumeSummary {
-  color: rgba(246, 243, 234, 0.72);
-  line-height: 1.75;
-  margin-top: 18px;
-  max-width: 900px;
-  position: relative;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-top: 20px;
+  max-width: 760px;
 }
-
 .resumeContact {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px 20px;
   margin-top: 22px;
-  position: relative;
+  font-size: 12px;
 }
-
-.resumeContact span,
 .resumeContact a {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 999px;
-  color: #f6f3ea;
-  font-size: 0.88rem;
-  font-weight: 800;
-  padding: 9px 12px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
-
+.resumeSection {
+  padding: 35px 0;
+  border-bottom: 1px solid var(--line);
+}
 .resumeSection h2 {
-  font-size: clamp(1.5rem, 3vw, 2.4rem);
-  letter-spacing: 0;
-  margin-bottom: 18px;
+  font-size: 26px;
+  letter-spacing: -0.5px;
+  margin-bottom: 25px;
 }
-
 .resumeStrengths,
 .resumeProjects,
 .resumeSkillGroups,
 .resumeProof {
   display: grid;
-  gap: 14px;
+  gap: 22px;
 }
-
 .resumeStrengths {
   grid-template-columns: repeat(3, 1fr);
 }
-
 .resumeStrengths div,
 .resumeProjects article,
 .resumeSkillGroups article,
 .resumeProof article {
-  background: rgba(255, 255, 255, 0.045);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  color: rgba(246, 243, 234, 0.72);
+  color: var(--muted);
+  font-size: 13px;
   line-height: 1.7;
-  padding: 18px;
 }
-
 .resumeTimeline {
   display: grid;
-  gap: 18px;
+  gap: 30px;
 }
-
 .resumeTimeline article {
   display: grid;
-  gap: 18px;
-  grid-template-columns: 180px 1fr;
+  gap: 20px;
+  grid-template-columns: 150px 1fr;
 }
-
 .resumeTimeline h3,
 .resumeProjects h3,
 .resumeSkillGroups h3,
 .resumeProof h3 {
-  color: #f6f3ea;
-  font-size: 1.2rem;
-  margin: 0 0 10px;
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1.4;
+  margin: 0 0 8px;
 }
-
 .resumeTimeline ul,
 .resumeProjects ul {
-  color: rgba(246, 243, 234, 0.72);
+  color: var(--muted);
+  font-size: 13px;
   line-height: 1.7;
-  margin: 12px 0 0 20px;
-  padding: 0;
+  margin: 14px 0 0;
+  padding-left: 18px;
 }
-
+.resumeTimeline li + li,
+.resumeProjects li + li {
+  margin-top: 7px;
+}
 .resumeProjects {
   grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
 }
-
+.resumeProjects article {
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+}
+.resumeProjects h3 {
+  margin-top: 8px;
+}
 .resumeSkillGroups {
   grid-template-columns: repeat(3, 1fr);
 }
-
 .resumeSkillGroups article div {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 5px 10px;
 }
-
 .resumeSkillGroups span {
-  background: #171717;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 999px;
-  color: #f6f3ea;
-  font-size: 0.84rem;
-  font-weight: 800;
-  padding: 8px 10px;
+  font-size: 12px;
 }
-
 .resumeProof {
   grid-template-columns: repeat(2, 1fr);
 }
-
+@media (max-width: 800px) {
+  .resumeHeader {
+    flex-wrap: wrap;
+  }
+  .resumeStrengths,
+  .resumeSkillGroups {
+    grid-template-columns: 1fr;
+  }
+  .resumeDocument {
+    margin-top: 40px;
+  }
+  .resumeTimeline article {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+@media (max-width: 600px) {
+  .resumeHeader .site-nav {
+    gap: 20px;
+  }
+  .resumeProjects,
+  .resumeProof {
+    grid-template-columns: 1fr;
+  }
+  .resumeHero h1 {
+    font-size: 38px;
+  }
+  .resumeSection {
+    padding: 28px 0;
+  }
+}
 @media print {
+  .resumePage {
+    padding: 0;
+    background: white;
+    color: black;
+  }
   .resumeHeader {
     display: none;
   }
-
-  .resumePage {
-    padding: 0;
+  .resumeDocument {
+    margin: 0;
+    max-width: none;
   }
-
+  .resumeHero h1 {
+    font-size: 30px;
+  }
+  .resumeSection h2 {
+    font-size: 19px;
+    break-after: avoid;
+  }
   .resumeHero,
   .resumeSection {
+    padding: 18px 0;
+  }
+  .resumeTimeline article,
+  .resumeProjects article,
+  .resumeProof article {
     break-inside: avoid;
-    box-shadow: none;
   }
-}
-
-@media screen and (max-width: 900px) {
-  .resumeHeader {
-    align-items: flex-start;
-    border-radius: 18px;
-    flex-direction: column;
-    gap: 12px;
+  .resumeContact {
+    font-size: 10px;
   }
-
-  .resumeStrengths,
-  .resumeProjects,
-  .resumeSkillGroups,
-  .resumeProof,
-  .resumeTimeline article {
-    grid-template-columns: 1fr;
+  .resumeStrengths div,
+  .resumeProjects article,
+  .resumeTimeline ul {
+    font-size: 10px;
+    color: #333;
   }
-}
-
-@media screen and (max-width: 680px) {
-  .resumePage {
-    padding-top: 132px;
+  .resumeProjects {
+    display: block;
   }
-
-  .resumeHero,
-  .resumeSection {
-    padding: 20px;
+  .resumeProjects article {
+    margin-bottom: 15px;
+  }
+  .resumeSkillGroups {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
