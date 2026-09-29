@@ -10,38 +10,34 @@ export const profile = {
   github: "https://github.com/Leanstix",
   linkedin: "https://www.linkedin.com/in/aleshinloye-olamilekan-765855218",
   twitter: "https://x.com/Aleshinloy7974",
-  headline:
-    "I build polished interfaces and reliable full-stack systems.",
+  headline: "Thoughtful interfaces. Dependable systems.",
   summary:
-    "Full stack engineer with 4+ years of experience shipping React, Next.js, TypeScript, React Native, Django, FastAPI, NestJS, PostgreSQL, payment workflows, multi-tenant platforms, open-source developer tooling, AI/ML systems, dashboards, mobile-facing product flows, and production APIs."
+    "Full stack engineer with a strong backend focus. I build web and mobile products, payment systems, multi-tenant platforms, and developer tools using TypeScript and Python. My work spans product requirements, implementation, and production support.",
 };
 
 export const metrics = [
   { value: "4+ yrs", label: "Full stack delivery" },
   { value: "PyPI", label: "Published developer tooling" },
   { value: "APIs", label: "Django, FastAPI, NestJS, PostgreSQL" },
-  { value: "AI/ML", label: "Hackathons, search, intelligence layers" }
+  { value: "AI/ML", label: "Hackathons, search, intelligence layers" },
 ];
 
 export const capabilities = [
   {
     title: "Frontend Product Engineering",
     icon: "01",
-    body:
-      "React, Next.js, React Native, TypeScript, responsive layouts, dashboard workflows, form-heavy journeys, loading states, error states, validation flows, and reusable UI components."
+    body: "React, Next.js, React Native, TypeScript, responsive layouts, dashboard workflows, form-heavy journeys, loading states, error states, validation flows, and reusable UI components.",
   },
   {
     title: "Backend and API Systems",
     icon: "02",
-    body:
-      "Django, FastAPI, NestJS, REST APIs, authentication, authorization, PostgreSQL data modeling, Redis-backed performance, webhook systems, payment flows, and service reliability."
+    body: "Django, FastAPI, NestJS, REST APIs, authentication, authorization, PostgreSQL data modeling, Redis-backed performance, webhook systems, payment flows, and service reliability.",
   },
   {
     title: "End-to-End Product Delivery",
     icon: "03",
-    body:
-      "Turn product requirements and Figma designs into shipped interfaces, integrate them with production APIs, debug across the stack, and keep user journeys stable."
-  }
+    body: "Turn product requirements and Figma designs into shipped interfaces, integrate them with production APIs, debug across the stack, and keep user journeys stable.",
+  },
 ];
 
 export const projects = [
@@ -54,18 +50,18 @@ export const projects = [
     bullets: [
       "Designed a YAML contract format that expands actor-by-resource relationships into independent allow, deny, conceal, and unauthenticated test cases.",
       "Added Django REST Framework route discovery, missing-authorization coverage reports, JSON output, and configurable CI coverage gates.",
-      "Packaged and released version 0.1.0 on PyPI with typed Python APIs, documentation, integration examples, Trusted Publishing, and CI validation across Python 3.10 through 3.13."
+      "Packaged and released version 0.1.0 on PyPI with typed Python APIs, documentation, integration examples, Trusted Publishing, and CI validation across Python 3.10 through 3.13.",
     ],
     links: [
       {
         label: "Install from PyPI",
-        href: "https://pypi.org/project/pytest-authz-matrix/"
+        href: "https://pypi.org/project/pytest-authz-matrix/",
       },
       {
         label: "View source",
-        href: "https://github.com/Leanstix/pytest-authz-matrix"
-      }
-    ]
+        href: "https://github.com/Leanstix/pytest-authz-matrix",
+      },
+    ],
   },
   {
     title: "Visitor Management System",
@@ -75,8 +71,8 @@ export const projects = [
     bullets: [
       "Built frontend-facing dashboard workflows for visitor histories, reporting screens, search flows, admin actions, and operational views.",
       "Designed secure REST APIs, tenant-aware PostgreSQL models, access boundaries, and optimized reporting/search queries.",
-      "Improved responsiveness with Redis-backed patterns and supported deployment, troubleshooting, and production reliability on AWS/Render."
-    ]
+      "Improved responsiveness with Redis-backed patterns and supported deployment, troubleshooting, and production reliability on AWS/Render.",
+    ],
   },
   {
     title: "Kenkeputa / VendorizeMe Product Systems",
@@ -86,8 +82,8 @@ export const projects = [
     bullets: [
       "Shipped customer-facing React Native and TypeScript features from Figma to production with clean UI state handling and API integration.",
       "Led Stripe to PayPal migration, including payment capture, webhook verification, duplicate safeguards, payout states, and transaction audit records.",
-      "Integrated Zendesk support automation, Datadog API logging, Firebase Crashlytics visibility, and production debugging across API, database, payment, and mobile layers."
-    ]
+      "Integrated Zendesk support automation, Datadog API logging, Firebase Crashlytics visibility, and production debugging across API, database, payment, and mobile layers.",
+    ],
   },
   {
     title: "VendorizeMe Native Search Engine",
@@ -97,8 +93,8 @@ export const projects = [
     bullets: [
       "Implemented PostgreSQL full-text search, ILIKE fallback, category filters, service-tag filters, price filters, rating filters, availability logic, distance calculation, ranking, boost, and penalty logic.",
       "Added optional LLM-assisted intent parsing and autocomplete while keeping PostgreSQL as the final production executor.",
-      "Added internal X-API-Key protection, controlled CORS, validation errors, health checks, Docker deployment setup, Render configuration, and contract tests."
-    ]
+      "Added internal X-API-Key protection, controlled CORS, validation errors, health checks, Docker deployment setup, Render configuration, and contract tests.",
+    ],
   },
   {
     title: "Lafiya - Infectious Disease Surveillance Platform",
@@ -108,8 +104,8 @@ export const projects = [
     bullets: [
       "Direct ingestion and encrypted offline relay ingestion for Tracy ecosystem signals.",
       "Exposure risk, vitals anomaly detection, outbreak zone analysis, contact network analysis, device health analysis, and alert prioritization.",
-      "Contact graph construction, superspreader ranking, BFS transmission simulation, runtime persistence, cache invalidation, WebSocket updates, and dashboard-ready intelligence snapshots."
-    ]
+      "Contact graph construction, superspreader ranking, BFS transmission simulation, runtime persistence, cache invalidation, WebSocket updates, and dashboard-ready intelligence snapshots.",
+    ],
   },
   {
     title: "AI Resume Platform",
@@ -118,8 +114,8 @@ export const projects = [
       "Built responsive data-collection workflows for an AI-powered resume generation platform, focusing on structured input, validation, backend integration, loading states, error states, and reliable submission flows.",
     bullets: [
       "Created reusable UI patterns for form-heavy user journeys and improved behavior across screen sizes.",
-      "Integrated frontend screens with backend APIs and handled loading, error, and validation states for smoother submissions."
-    ]
+      "Integrated frontend screens with backend APIs and handled loading, error, and validation states for smoother submissions.",
+    ],
   },
   {
     title: "AMRRA - AI Multi-Agent Research Assistant",
@@ -128,8 +124,8 @@ export const projects = [
       "Led a six-engineer hackathon team building a multi-agent retrieval and synthesis system for structured research outputs.",
     bullets: [
       "Coordinated agent responsibilities, research workflows, synthesis outputs, and delivery planning under hackathon pressure.",
-      "Strengthened practical experience in agent orchestration, prompt evaluation, AI-assisted research workflows, and technical leadership."
-    ]
+      "Strengthened practical experience in agent orchestration, prompt evaluation, AI-assisted research workflows, and technical leadership.",
+    ],
   },
   {
     title: "Reply Hack the Code / AI Agent Challenge",
@@ -138,22 +134,22 @@ export const projects = [
       "Built three fraud-detection solution iterations across separate datasets using Python-based ML experimentation, feature engineering, anomaly signals, rule-based checks, model scoring, and agent-style reasoning.",
     bullets: [
       "Parsed transaction behavior, payment method, balance movement, timestamp, merchant/location signals, and auxiliary user activity patterns.",
-      "Connected Langfuse through its API for LLM/agent observability, session tracing, prompt/evaluation visibility, and decision-flow debugging."
-    ]
+      "Connected Langfuse through its API for LLM/agent observability, session tracing, prompt/evaluation visibility, and decision-flow debugging.",
+    ],
   },
   {
     title: "Flow - University Social Platform",
     tag: "Social product - Real-time interaction workflows",
     description:
       "Designed messaging, feeds, user discovery, and interaction logic for an interest-based university social networking platform, including scalable communication and campus-community product patterns.",
-    link: "https://flow-aleshinloye-olamilekan-s-projects.vercel.app"
+    link: "https://flow-aleshinloye-olamilekan-s-projects.vercel.app",
   },
   {
     title: "FashionFi - Fashion Marketplace",
     tag: "Marketplace UX - Product planning - Hackathon leadership",
     description:
-      "Led and contributed to a fashion-commerce marketplace concept involving user-facing product flows, interface planning, feature breakdown, implementation coordination, and scalable application structure."
-  }
+      "Led and contributed to a fashion-commerce marketplace concept involving user-facing product flows, interface planning, feature breakdown, implementation coordination, and scalable application structure.",
+  },
 ];
 
 export const experience = [
@@ -161,43 +157,51 @@ export const experience = [
     period: "Nov 2025 - Present",
     title: "Full Stack Engineer - Product, Payments, Search and Mobile",
     company: "Kenkeputa - Houston, Texas (Remote)",
+    overview:
+      "Building VendorizeMe’s marketplace across mobile, payments, and search. Led the PayPal migration and developed the platform’s native search service.",
     body: [
       "Build and maintain production features supporting marketplace workflows, vendor/customer actions, booking flows, payment verification, event-service flows, mobile application journeys, media uploads, notifications, support operations, and operational automations.",
       "Ship customer-facing React Native and TypeScript features from Figma to production while designing predictable API behaviors and debugging state transitions across frontend, mobile, payment, database, and backend layers.",
       "Led Stripe to PayPal payment migration and implemented PayPal capture logic, webhook verification, duplicate transaction safeguards, payout states, audit records, Zendesk automation, Datadog API logging, and Firebase Crashlytics visibility.",
-      "Built and documented a standalone FastAPI search microservice with PostgreSQL full-text search, filters, ranking logic, autocomplete, health checks, Docker setup, Render deployment, internal API-key protection, and contract tests."
-    ]
+      "Built and documented a standalone FastAPI search microservice with PostgreSQL full-text search, filters, ranking logic, autocomplete, health checks, Docker setup, Render deployment, internal API-key protection, and contract tests.",
+    ],
   },
   {
     period: "May 2025 - Present",
     title: "Full Stack Engineer - React/Next.js and Django Platform",
     company: "Xeta Digital - Lagos, Nigeria (Remote)",
+    overview:
+      "Designing and delivering a multi-tenant visitor management platform, from Next.js dashboards to Django APIs and AWS deployment.",
     body: [
       "Designed and deployed a multi-tenant Visitor Management System with responsive web workflows, tenant-aware dashboards, admin interfaces, operational search, reporting screens, and secure REST APIs.",
       "Built tenant-aware dashboard and operational interfaces using modern React and Next.js patterns, connecting frontend workflows to scalable Django backend APIs.",
       "Architected PostgreSQL access boundaries, optimized high-frequency dashboard, visitor history, reporting, and search queries, introduced Redis-backed performance improvements, and supported AWS deployment and production troubleshooting.",
-      "Collaborated remotely with product and frontend stakeholders, turning estate operations into usable application flows for visitor check-in/check-out, access control, admin actions, reporting, search, and estate-specific workflows."
-    ]
+      "Collaborated remotely with product and frontend stakeholders, turning estate operations into usable application flows for visitor check-in/check-out, access control, admin actions, reporting, search, and estate-specific workflows.",
+    ],
   },
   {
     period: "Jul 2024 - Sep 2024",
     title: "Frontend Engineer Intern - AI Resume Platform",
     company: "AnalogueShifts - Lagos, Nigeria / Remote",
+    overview:
+      "Built responsive data-collection flows for an AI resume platform, with reusable forms, API integration, and clear validation states.",
     body: [
       "Built dynamic data-collection workflows for an AI resume generation platform, reusable UI patterns, responsive screens, backend API integrations, and loading, error, and validation states.",
-      "Collaborated remotely with engineers to translate product requirements into working frontend features, debug interface issues, and improve submission reliability for form-heavy user journeys."
-    ]
+      "Collaborated remotely with engineers to translate product requirements into working frontend features, debug interface issues, and improve submission reliability for form-heavy user journeys.",
+    ],
   },
   {
     period: "Sep 2021 - Jul 2024",
     title: "Backend Developer and ICT Systems Engineer",
     company: "Eccowas Cosmopolitan College - Ogun, Nigeria (Hybrid)",
+    overview:
+      "Built backend services, reporting, and integrations for school operations, working directly with administrators, teachers, and students.",
     body: [
       "Designed backend architecture, reporting logic, API integrations, and operational workflows for a live school-management environment used by administrators, teachers, and students.",
       "Worked directly with non-technical administrators, teachers, and students to translate real operational pain points into usable digital workflows, troubleshooting loops, data entry processes, and reporting improvements.",
-      "Built API integrations for academic performance analytics, helping administrators understand results, attendance, and school operations more clearly."
-    ]
-  }
+      "Built API integrations for academic performance analytics, helping administrators understand results, attendance, and school operations more clearly.",
+    ],
+  },
 ];
 
 export const skills = [
@@ -240,20 +244,18 @@ export const skills = [
   "Payments",
   "Langfuse",
   "Groq",
-  "Machine Learning"
+  "Machine Learning",
 ];
 
 export const proof = [
   {
     label: "Education",
     title: "Computer Science, University of Ibadan",
-    body:
-      "Ongoing computer science degree, backed by ALX Full Stack Software Engineering training completed in November 2024."
+    body: "Ongoing computer science degree, backed by ALX Full Stack Software Engineering training completed in November 2024.",
   },
   {
     label: "Recognition",
     title: "Hackathon-tested full-stack builder",
-    body:
-      "HealthTrace Hackathon 2026 winner for Lafiya. AMRRA hackathon lead for a multi-agent research assistant. Solo ML fraud-detection participant in Reply Hack the Code / AI Agent Challenge 2026. FashionFi team lead during Algorand Hackathon 2024."
-  }
+    body: "HealthTrace Hackathon 2026 winner for Lafiya. AMRRA hackathon lead for a multi-agent research assistant. Solo ML fraud-detection participant in Reply Hack the Code / AI Agent Challenge 2026. FashionFi team lead during Algorand Hackathon 2024.",
+  },
 ];
