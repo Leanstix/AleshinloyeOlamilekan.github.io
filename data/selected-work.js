@@ -4,6 +4,12 @@ export const selectedWork = [
     title: "VendorizeMe",
     category: "Product engineering / Marketplace",
     kind: "payments",
+    preview: {
+      src: "vendorizeme-preview.jpg",
+      href: "https://vendorizeme.us/",
+      domain: "vendorizeme.us",
+    },
+    links: [{ label: "Visit website", href: "https://vendorizeme.us/" }],
     description:
       "Connecting vendor discovery, bookings, payments, and payouts in one marketplace—from the mobile experience to the services behind it.",
     stack: "React Native · NestJS · FastAPI · PostgreSQL · PayPal",
@@ -16,6 +22,12 @@ export const selectedWork = [
     title: "Visitly",
     category: "Full stack / Multi-tenant platform",
     kind: "access",
+    preview: {
+      src: "visitly-preview.jpg",
+      href: "https://visitly.com.ng/",
+      domain: "visitly.com.ng",
+    },
+    links: [{ label: "Visit website", href: "https://visitly.com.ng/" }],
     description:
       "Visitor and estate management that brings registration, check-in, administration, and reporting into a single operational workflow.",
     stack: "Next.js · Django REST Framework · PostgreSQL · Redis · AWS",
@@ -70,5 +82,45 @@ export const toolkit = [
   {
     title: "Specialist work",
     items: "Payments, WebSockets, authorization testing, applied ML",
+  },
+];
+
+export const webWork = [
+  {
+    title: "AnalogueShifts Resume Builder",
+    category: "Frontend engineering / 2024",
+    description:
+      "Responsive forms and API-connected workflows for an AI-powered resume builder, with reusable input patterns and clear validation states.",
+    preview: {
+      src: "analogue-resume-preview.jpg",
+      href: "https://resume.analogueshifts.com/",
+      domain: "resume.analogueshifts.com",
+      width: 1363,
+      height: 936,
+    },
+  },
+  {
+    title: "AnalogueShifts Pay",
+    category: "Web platform / Payments",
+    description:
+      "The AnalogueShifts payment gateway website, introducing the platform’s earnings and withdrawal services.",
+    preview: {
+      src: "analogue-pay-preview.jpg",
+      href: "https://pay.analogueshifts.com/",
+      domain: "pay.analogueshifts.com",
+      width: 1363,
+      height: 936,
+    },
+  },
+  {
+    title: "GradXTech",
+    category: "Freelance / Landing page / 2024",
+    description:
+      "A single-page freelance website for a tech education initiative, presenting its training areas, mentorship, and career support for graduates and NYSC members.",
+    preview: {
+      src: "gradxtech-preview.jpg",
+      href: "https://gradxtech.github.io/",
+      domain: "gradxtech.github.io",
+    },
   },
 ];

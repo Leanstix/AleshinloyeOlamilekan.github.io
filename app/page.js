@@ -1,5 +1,5 @@
 import { profile, experience } from "../data/portfolio";
-import { selectedWork, toolkit } from "../data/selected-work";
+import { selectedWork, webWork, toolkit } from "../data/selected-work";
 
 function Arrow({ down = false }) {
   return (
@@ -10,61 +10,6 @@ function Arrow({ down = false }) {
 }
 
 function ProjectArtwork({ kind }) {
-  if (kind === "payments")
-    return (
-      <div className="artwork payments-art" aria-hidden="true">
-        <div className="art-top">
-          <span>V / VendorizeMe</span>
-          <span>Marketplace systems</span>
-        </div>
-        <div className="payment-track">
-          <span>
-            01
-            <br />
-            <b>Book.</b>
-          </span>
-          <span>
-            02
-            <br />
-            <b>Pay.</b>
-          </span>
-          <span>
-            03
-            <br />
-            <b>Settle.</b>
-          </span>
-        </div>
-        <div className="art-bottom">
-          <span>A connected payment lifecycle</span>
-          <span>↗</span>
-        </div>
-      </div>
-    );
-  if (kind === "access")
-    return (
-      <div className="artwork access-art" aria-hidden="true">
-        <div className="art-top">
-          <span>Visitly</span>
-          <span>Access & operations</span>
-        </div>
-        <div className="access-composition">
-          <div className="access-ring ring-one" />
-          <div className="access-ring ring-two" />
-          <div className="access-ring ring-three" />
-          <span className="access-label label-one">Residents</span>
-          <span className="access-label label-two">Visitors</span>
-          <span className="access-label label-three">
-            One estate.
-            <br />
-            Clear boundaries.
-          </span>
-        </div>
-        <div className="art-bottom">
-          <span>Tenant-aware by design</span>
-          <span>↗</span>
-        </div>
-      </div>
-    );
   if (kind === "testing")
     return (
       <div className="artwork testing-art" aria-hidden="true">
@@ -121,6 +66,37 @@ function ProjectArtwork({ kind }) {
         <span>↗</span>
       </div>
     </div>
+  );
+}
+
+function WebsitePreview({ project }) {
+  const preview = project.preview;
+  return (
+    <a
+      className="site-preview"
+      href={preview.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Visit ${project.title} website (opens in a new tab)`}
+    >
+      <div className="preview-toolbar" aria-hidden="true">
+        <span className="preview-dots">
+          <i />
+          <i />
+          <i />
+        </span>
+        <span>{preview.domain}</span>
+        <Arrow />
+      </div>
+      <img
+        src={preview.src}
+        alt={`${project.title} website homepage preview`}
+        width={preview.width || 1348}
+        height={preview.height || 926}
+        loading="lazy"
+        decoding="async"
+      />
+    </a>
   );
 }
 
@@ -224,7 +200,11 @@ export default function Home() {
           <div className="work-grid">
             {selectedWork.map((project, index) => (
               <article className="project" key={project.title}>
-                <ProjectArtwork kind={project.kind} />
+                {project.preview ? (
+                  <WebsitePreview project={project} />
+                ) : (
+                  <ProjectArtwork kind={project.kind} />
+                )}
                 <div className="project-meta">
                   <span>{project.category}</span>
                   <span>0{index + 1}</span>
@@ -261,6 +241,32 @@ export default function Home() {
               </article>
             ))}
           </div>
+          <section className="web-work" aria-labelledby="web-work-title">
+            <div className="section-heading">
+              <div>
+                <p className="sectionKicker">More web work</p>
+                <h3 id="web-work-title">Platforms & landing pages.</h3>
+              </div>
+            </div>
+            <div className="web-work-grid">
+              {webWork.map((project) => (
+                <article className="project" key={project.title}>
+                  <WebsitePreview project={project} />
+                  <p className="project-meta">{project.category}</p>
+                  <h3>{project.title}</h3>
+                  <p className="project-description">{project.description}</p>
+                  <a
+                    className="text-link"
+                    href={project.preview.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Visit website <Arrow />
+                  </a>
+                </article>
+              ))}
+            </div>
+          </section>
           <div className="more-work">
             <p>There’s more behind the scenes.</p>
             <a
