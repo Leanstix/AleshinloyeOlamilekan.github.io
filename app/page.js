@@ -143,13 +143,12 @@ export default function Home() {
           </div>
           <div className="portrait-frame">
             <img
-              src={asset("portrait.webp")}
+              src={asset("portrait-cutout.webp")}
               alt="Aleshinloye Olamilekan"
               fetchPriority="high"
-              width="720"
-              height="753"
+              width="1227"
+              height="1282"
             />
-            <span>ENGINEER. BUILDER. PROBLEM SOLVER.</span>
           </div>
           <a className="scroll-cue" href="#about" aria-label="Scroll to about">
             <span />
