@@ -1,413 +1,404 @@
-import { profile, experience } from "../data/portfolio";
+"use client";
+
+import { useState } from "react";
+import { profile, experience, capabilities } from "../data/portfolio";
 import { selectedWork, webWork, toolkit } from "../data/selected-work";
+import "./portfolio.css";
 
-function Arrow({ down = false }) {
-  return (
-    <span aria-hidden="true" className="arrow">
-      {down ? "↓" : "↗"}
-    </span>
-  );
-}
+const base =
+  process.env.NEXT_PUBLIC_BASE_PATH ||
+  (process.env.GITHUB_ACTIONS === "true"
+    ? "/AleshinloyeOlamilekan.github.io"
+    : "");
+const asset = (path) => `${base}/${path}`;
+const navigation = [
+  ["about", "About"],
+  ["projects", "Projects"],
+  ["experience", "Experience"],
+  ["contact", "Contact"],
+];
 
-function ProjectArtwork({ kind }) {
-  if (kind === "testing")
+function ProjectVisual({ project }) {
+  if (project.preview)
     return (
-      <div className="artwork testing-art" aria-hidden="true">
-        <div className="art-top">
-          <span>pytest-authz-matrix</span>
-          <span>Open source</span>
-        </div>
-        <div className="matrix">
-          <div className="matrix-row matrix-head">
-            <span>POLICY</span>
-            <span>OWNER</span>
-            <span>OTHER</span>
-          </div>
-          <div className="matrix-row">
-            <span>Read resource</span>
-            <span className="allow">ALLOW</span>
-            <span>DENY</span>
-          </div>
-          <div className="matrix-row">
-            <span>Update resource</span>
-            <span className="allow">ALLOW</span>
-            <span>DENY</span>
-          </div>
-          <p>Permissions, made testable.</p>
-        </div>
-        <div className="art-bottom">
-          <span>Illustrative authorization contract</span>
-          <span>↗</span>
-        </div>
-      </div>
+      <img
+        src={asset(project.preview.src)}
+        alt={`${project.title} website preview`}
+        loading="lazy"
+      />
     );
   return (
-    <div className="artwork health-art" aria-hidden="true">
-      <div className="art-top">
-        <span>Lafiya</span>
-        <span>Public health intelligence</span>
-      </div>
-      <div className="health-composition">
-        <svg viewBox="0 0 500 130" fill="none">
-          <path
-            d="M0 70H95L112 58L130 87L151 20L173 112L193 70H270L288 54L306 85L326 32L347 102L363 70H500"
-            stroke="currentColor"
-            strokeWidth="2"
-          />
-        </svg>
-        <span>
-          Signals into
-          <br />
-          <em>early insight.</em>
-        </span>
-      </div>
-      <div className="art-bottom">
-        <span>HealthTrace Hackathon 2026 · Winner</span>
-        <span>↗</span>
-      </div>
+    <div className={`project-visual ${project.kind}`} aria-hidden="true">
+      {project.kind === "testing" ? (
+        <>
+          <span>pytest</span>
+          <code>
+            ROLE × RESOURCE
+            <br />✓ ALLOW　× DENY
+            <br />✓ TENANT ISOLATION
+          </code>
+          <small>Permissions, made testable.</small>
+        </>
+      ) : (
+        <>
+          <span>LAFIYA</span>
+          <svg viewBox="0 0 500 140">
+            <path d="M0 70H90L110 55L135 95L160 15L185 125L210 70H290L310 50L330 95L350 25L375 110L400 70H500" />
+          </svg>
+          <small>HealthTrace 2026 · Winner</small>
+        </>
+      )}
     </div>
   );
 }
 
-function WebsitePreview({ project }) {
-  const preview = project.preview;
-  return (
-    <a
-      className="site-preview"
-      href={preview.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`Visit ${project.title} website (opens in a new tab)`}
-    >
-      <div className="preview-toolbar" aria-hidden="true">
-        <span className="preview-dots">
-          <i />
-          <i />
-          <i />
-        </span>
-        <span>{preview.domain}</span>
-        <Arrow />
-      </div>
-      <img
-        src={preview.src}
-        alt={`${project.title} website homepage preview`}
-        width={preview.width || 1348}
-        height={preview.height || 926}
-        loading="lazy"
-        decoding="async"
-      />
-    </a>
-  );
-}
-
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [active, setActive] = useState(0);
+  const [contactStatus, setContactStatus] = useState("");
+  function contact(event) {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const subject = encodeURIComponent(
+      `Portfolio enquiry from ${data.get("name")}`,
+    );
+    const body = encodeURIComponent(
+      `${data.get("message")}\n\nFrom: ${data.get("name")}\nReply to: ${data.get("email")}`,
+    );
+    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
+    setContactStatus(
+      "Your email app will open with your message. Send it there, or email me directly below.",
+    );
+  }
   return (
-    <div className="siteShell">
+    <div className="portfolio">
       <a className="skip-link" href="#main">
         Skip to content
       </a>
-      <header className="site-header">
-        <a
-          className="wordmark"
-          href="#home"
-          aria-label={`${profile.name} home`}
-        >
-          olamilekan<span>.</span>
-        </a>
-        <nav className="site-nav" aria-label="Primary navigation">
-          <a href="#work">Work</a>
-          <a href="#about">About</a>
-          <a href={profile.resume}>
-            Résumé <Arrow />
+      <header className="portfolio-nav">
+        <div className="nav-inner">
+          <a
+            className="portfolio-logo"
+            href="#home"
+            aria-label="Olamilekan home"
+          >
+            <span>AO</span>
+            <strong>
+              OLAMILEKAN<span>.</span>
+            </strong>
           </a>
-          <a className="nav-contact" href="#contact">
-            Let’s talk <Arrow />
-          </a>
-        </nav>
+          <button
+            className="menu-toggle"
+            aria-expanded={menuOpen}
+            aria-controls="portfolio-links"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? "Close ×" : "Menu ☰"}
+          </button>
+          <nav
+            id="portfolio-links"
+            className={menuOpen ? "is-open" : ""}
+            aria-label="Primary navigation"
+          >
+            {navigation.map(([id, label]) => (
+              <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>
+                {label}
+              </a>
+            ))}
+          </nav>
+        </div>
       </header>
       <main id="main">
-        <section className="hero" id="home" aria-labelledby="hero-title">
-          <div className="heroCopy">
-            <p className="eyebrow">
-              <span className="status-dot" /> Full stack engineer · Ibadan,
-              Nigeria
-            </p>
-            <h1 id="hero-title">
+        <section className="portfolio-hero" id="home">
+          <div className="hero-map" aria-hidden="true" />
+          <div className="hero-diagonal" aria-hidden="true" />
+          <div className="hero-content">
+            <p className="hero-intro">FULL STACK ENGINEER · IBADAN, NIGERIA</p>
+            <h1>
+              HI, I’M
+              <br />
+              <span>OLAMILEKAN</span>
+            </h1>
+            <p className="hero-description">
               Thoughtful interfaces.
               <br />
-              <em>
-                Dependable
-                <br className="desktop-break" /> systems.
-              </em>
-            </h1>
-            <p className="heroLede">
-              I’m Olamilekan. I build web and mobile products, with a strong
-              focus on the backend systems that keep them running.
+              Dependable systems.
             </p>
-            <div className="heroActions">
-              <a className="button" href="#work">
-                Explore my work <Arrow down />
+            <div className="hero-actions">
+              <a className="portfolio-button" href="#projects">
+                Explore my work ↗
               </a>
-              <a className="text-link" href={`mailto:${profile.email}`}>
-                Get in touch <Arrow />
+              <a className="resume-link" href={asset("resume/")}>
+                View résumé ↓
               </a>
             </div>
           </div>
-          <figure className="portrait">
-            <div className="portrait-image">
-              <img
-                src="portrait.webp"
-                alt="Aleshinloye Olamilekan"
-                width="720"
-                height="900"
-                fetchPriority="high"
-              />
-            </div>
-            <figcaption>
-              <span>Aleshinloye Olamilekan</span>
-              <span>Engineer & builder</span>
-            </figcaption>
-            <div className="portrait-note">
-              <span className="status-dot" /> Open to roles & collaborations
-            </div>
-          </figure>
+          <div className="portrait-frame">
+            <img
+              src={asset("portrait.webp")}
+              alt="Aleshinloye Olamilekan"
+              fetchPriority="high"
+              width="720"
+              height="753"
+            />
+            <span>ENGINEER. BUILDER. PROBLEM SOLVER.</span>
+          </div>
+          <a className="scroll-cue" href="#about" aria-label="Scroll to about">
+            <span />
+          </a>
         </section>
-        <div className="intro-strip">
-          <span>From product requirements to production.</span>
-          <p>
-            Web & mobile <span>/</span> Backend systems <span>/</span> Applied
-            AI
-          </p>
-        </div>
+        <section className="overview section-space" id="about">
+          <div className="section-inner">
+            <p className="section-label">INTRODUCTION</p>
+            <h2>Overview.</h2>
+            <p className="section-description">{profile.summary}</p>
+            <div className="service-grid">
+              {capabilities.map((item, i) => (
+                <article className="service-card" key={item.title}>
+                  <img
+                    src={asset(
+                      `template/icons/${["frontend", "backend", "prototyping"][i]}.png`,
+                    )}
+                    alt=""
+                    width="58"
+                    height="58"
+                  />
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
         <section
-          id="work"
-          className="section work-section"
-          aria-labelledby="work-title"
+          className="toolkit section-space"
+          aria-label="Technical skills"
         >
-          <div className="section-heading">
-            <div>
-              <p className="sectionKicker">01 / Selected work</p>
-              <h2 id="work-title">
-                A few things I’ve built<span>.</span>
-              </h2>
-            </div>
-            <p>
-              Production platforms, open-source tools,
-              <br />
-              and problems worth working on.
-            </p>
-          </div>
-          <div className="work-grid">
-            {selectedWork.map((project, index) => (
-              <article className="project" key={project.title}>
-                {project.preview ? (
-                  <WebsitePreview project={project} />
-                ) : (
-                  <ProjectArtwork kind={project.kind} />
-                )}
-                <div className="project-meta">
-                  <span>{project.category}</span>
-                  <span>0{index + 1}</span>
+          <div className="section-inner">
+            <p className="section-label">THE TOOLS BEHIND THE WORK</p>
+            <div className="toolkit-grid">
+              {toolkit.map((group) => (
+                <div key={group.title}>
+                  <h3>{group.title}</h3>
+                  <p>{group.items}</p>
                 </div>
-                <h3>{project.title}</h3>
-                <p className="project-description">{project.description}</p>
-                <p className="project-stack">{project.stack}</p>
-                <details className="project-details">
-                  <summary>
-                    Engineering notes <span aria-hidden="true">+</span>
-                  </summary>
-                  <div>
-                    <p className="detail-label">My contribution</p>
-                    <p>{project.contribution}</p>
-                    <p className="detail-label">What mattered</p>
-                    <p>{project.challenge}</p>
-                  </div>
-                </details>
-                {project.links && (
-                  <div className="project-links">
-                    {project.links.map((link) => (
-                      <a
-                        className="text-link"
-                        key={link.href}
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {link.label} <Arrow />
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </article>
-            ))}
-          </div>
-          <section className="web-work" aria-labelledby="web-work-title">
-            <div className="section-heading">
-              <div>
-                <p className="sectionKicker">More web work</p>
-                <h3 id="web-work-title">Platforms & landing pages.</h3>
-              </div>
+              ))}
             </div>
-            <div className="web-work-grid">
-              {webWork.map((project) => (
-                <article className="project" key={project.title}>
-                  <WebsitePreview project={project} />
-                  <p className="project-meta">{project.category}</p>
-                  <h3>{project.title}</h3>
-                  <p className="project-description">{project.description}</p>
+          </div>
+        </section>
+        <section className="portfolio-projects section-space" id="projects">
+          <div className="section-inner">
+            <p className="section-label">CASE STUDIES</p>
+            <h2>Projects.</h2>
+            <p className="section-description">
+              Production products, open-source tools, and applied intelligence.
+              A selection of the systems I’ve built and the challenges behind
+              them.
+            </p>
+            <div className="project-deck">
+              {selectedWork.map((project, i) => (
+                <article
+                  className={`project-panel ${active === i ? "active" : ""}`}
+                  key={project.title}
+                >
+                  <ProjectVisual project={project} />
+                  <button
+                    className="project-selector"
+                    onClick={() => setActive(i)}
+                    aria-expanded={active === i}
+                    aria-controls={`project-detail-${i}`}
+                  >
+                    <span className="project-number">0{i + 1}</span>
+                    <span>{project.title}</span>
+                    <span aria-hidden="true">{active === i ? "−" : "+"}</span>
+                  </button>
+                  <div
+                    className="project-detail"
+                    id={`project-detail-${i}`}
+                    hidden={active !== i}
+                  >
+                    <p className="project-category">{project.category}</p>
+                    <h3>{project.title}</h3>
+                    <p>{project.description}</p>
+                    <p className="project-stack">{project.stack}</p>
+                    <div className="project-links">
+                      {project.links?.map((link) => (
+                        <a
+                          key={link.href}
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {link.label} ↗
+                        </a>
+                      )) || (
+                        <a href={asset("resume/")}>
+                          Read about my contribution ↗
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+            <div className="more-work">
+              <h3>More web work.</h3>
+              <div className="web-work-grid">
+                {webWork.map((project) => (
                   <a
-                    className="text-link"
+                    key={project.title}
                     href={project.preview.href}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Visit website <Arrow />
+                    <img
+                      src={asset(project.preview.src)}
+                      alt={`${project.title} homepage`}
+                      loading="lazy"
+                      width="1363"
+                      height="936"
+                    />
+                    <p>{project.category}</p>
+                    <h4>{project.title} ↗</h4>
                   </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="portfolio-experience section-space" id="experience">
+          <div className="section-inner">
+            <p className="section-label">WHAT I’VE DONE SO FAR</p>
+            <h2>Experience.</h2>
+            <div className="experience-timeline">
+              {experience.map((item, i) => (
+                <article key={item.company}>
+                  <span className="timeline-dot" aria-hidden="true">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className="timeline-date">{item.period}</p>
+                  <div className="timeline-card">
+                    <h3>{item.title.split(" - ")[0]}</h3>
+                    <p className="timeline-company">{item.company}</p>
+                    <p>{item.overview}</p>
+                  </div>
                 </article>
               ))}
             </div>
-          </section>
-          <div className="more-work">
-            <p>There’s more behind the scenes.</p>
-            <a
-              className="text-link"
-              href={profile.github}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Explore my GitHub <Arrow />
+            <a className="portfolio-button" href={asset("resume/")}>
+              Full experience & résumé ↗
             </a>
           </div>
         </section>
-        <section
-          id="about"
-          className="section about-section"
-          aria-labelledby="about-title"
-        >
-          <div>
-            <p className="sectionKicker">02 / A little about me</p>
-            <h2 id="about-title">
-              I care about
-              <br />
-              how it works.
-              <br />
-              <em>And who it’s for.</em>
-            </h2>
-          </div>
-          <div className="about-copy">
-            <p>
-              I’m a full stack engineer based in Ibadan, Nigeria. My work spans
-              marketplaces, estate management, developer tools, and public
-              health intelligence.
-            </p>
-            <p>
-              I like being close to the problem: understanding the workflow,
-              designing the system, building the interface, and following it
-              through to production. Payment edge cases and access boundaries
-              deserve as much attention as the screen in front of the user.
-            </p>
-            <p>
-              I’m studying Computer Science at the University of Ibadan and
-              completed ALX’s Full Stack Software Engineering programme in 2024.
-            </p>
-            <a className="text-link" href={profile.resume}>
-              Read my résumé <Arrow />
-            </a>
-          </div>
-        </section>
-        <section
-          id="experience"
-          className="section experience-section"
-          aria-labelledby="experience-title"
-        >
-          <div className="section-heading">
-            <div>
-              <p className="sectionKicker">03 / Experience</p>
-              <h2 id="experience-title">
-                Where I’ve contributed<span>.</span>
-              </h2>
+        <section className="portfolio-contact section-space" id="contact">
+          <div className="section-inner contact-grid">
+            <div className="contact-card">
+              <p className="section-label">GET IN TOUCH</p>
+              <h2>Contact.</h2>
+              <form onSubmit={contact}>
+                <label>
+                  Your name
+                  <input
+                    name="name"
+                    autoComplete="name"
+                    placeholder="What’s your name?"
+                    required
+                    maxLength="100"
+                  />
+                </label>
+                <label>
+                  Your email
+                  <input
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    placeholder="What’s your email?"
+                    required
+                    maxLength="254"
+                  />
+                </label>
+                <label>
+                  Your message
+                  <textarea
+                    name="message"
+                    rows="5"
+                    placeholder="Tell me about your project."
+                    required
+                    maxLength="5000"
+                  />
+                </label>
+                <p className="form-note">
+                  Opens your email app with a ready-to-send draft.
+                </p>
+                <button className="portfolio-button" type="submit">
+                  Write email ↗
+                </button>
+                <p role="status" className="form-note">
+                  {contactStatus}
+                </p>
+              </form>
             </div>
-          </div>
-          <div className="experience-list">
-            {experience.map((item) => (
-              <article className="experience-row" key={item.company}>
-                <p className="experience-date">{item.period}</p>
-                <div>
-                  <h3>{item.company.split(" - ")[0]}</h3>
-                  <p className="experience-role">
-                    {item.title.split(" - ")[0]}
-                  </p>
-                </div>
-                <p>{item.overview || item.body[0]}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-        <section
-          id="stack"
-          className="section toolkit-section"
-          aria-labelledby="toolkit-title"
-        >
-          <div>
-            <p className="sectionKicker">04 / The toolkit</p>
-            <h2 id="toolkit-title">Across the stack.</h2>
-            <p>
-              Tools I use to turn ideas
-              <br />
-              into working software.
-            </p>
-          </div>
-          <dl className="toolkit-list">
-            {toolkit.map((group) => (
-              <div key={group.title}>
-                <dt>{group.title}</dt>
-                <dd>{group.items}</dd>
+            <div className="contact-aside">
+              <p className="section-label">LET’S BUILD SOMETHING</p>
+              <h3>
+                Good ideas.
+                <br />
+                Solid execution.
+              </h3>
+              <p>
+                Have a product to build, a system to improve, or an engineering
+                role in mind? Let’s talk.
+              </p>
+              <a className="contact-email" href={`mailto:${profile.email}`}>
+                {profile.email} ↗
+              </a>
+              <div className="social-links">
+                <a
+                  href={profile.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub ↗
+                </a>
+                <a
+                  href={profile.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn ↗
+                </a>
+                <a
+                  href={profile.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  X ↗
+                </a>
               </div>
-            ))}
-          </dl>
-        </section>
-        <section
-          id="contact"
-          className="contact-section"
-          aria-labelledby="contact-title"
-        >
-          <p className="sectionKicker">Have something in mind?</p>
-          <div className="contact-heading">
-            <h2 id="contact-title">
-              Let’s build
-              <br />
-              <em>something useful.</em>
-            </h2>
-            <a
-              className="contact-arrow"
-              href={`mailto:${profile.email}`}
-              aria-label="Email Olamilekan"
-            >
-              <Arrow />
-            </a>
-          </div>
-          <div className="contact-bottom">
-            <a className="contact-email" href={`mailto:${profile.email}`}>
-              {profile.email}
-            </a>
-            <p>Open to full stack roles and thoughtful collaborations.</p>
+              <p className="location">
+                Based in Ibadan, Nigeria.
+                <br />
+                Working remotely, building globally.
+              </p>
+            </div>
           </div>
         </section>
       </main>
-      <footer className="site-footer">
-        <p>© {new Date().getFullYear()} Aleshinloye Olamilekan</p>
-        <div>
-          <a href={profile.github} target="_blank" rel="noopener noreferrer">
-            GitHub <Arrow />
+      <footer className="portfolio-footer">
+        <span>
+          © {new Date().getFullYear()} {profile.name}
+        </span>
+        <a href="#home">Back to top ↑</a>
+        <span>
+          Design adapted from{" "}
+          <a
+            href="https://github.com/shaqdeff/Portfolio-Template"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Shaquille Ndunda
           </a>
-          <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">
-            LinkedIn <Arrow />
-          </a>
-          <a href={profile.twitter} target="_blank" rel="noopener noreferrer">
-            X <Arrow />
-          </a>
-          <a href="#home">Back to top ↑</a>
-        </div>
+        </span>
       </footer>
     </div>
   );
