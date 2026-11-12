@@ -830,7 +830,7 @@
     letter-spacing: -2px;
   }
   .hero-content h1 span {
-    font-size: clamp(48px, 11.5vw, 76px);
+    font-size: clamp(38px, 11.5vw, 76px);
   }
   .hero-description {
     font-size: 22px;
