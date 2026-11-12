@@ -1025,3 +1025,12 @@
   font-weight: 700 !important;
   text-transform: uppercase;
 }
+
+.portfolio .external-arrow {
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  vertical-align: baseline;
+  flex-shrink: 0;
+  margin-left: 0.2em;
+}

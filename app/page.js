@@ -18,6 +18,14 @@ const navigation = [
   ["contact", "Contact"],
 ];
 
+function ExternalArrow() {
+  return (
+    <svg className="external-arrow" aria-hidden="true" viewBox="0 0 16 16" fill="none">
+      <path d="M3 13 13 3M3 3h10v10" stroke="currentColor" strokeWidth="1.5" />
+    </svg>
+  );
+}
+
 function ProjectVisual({ project }) {
   if (project.preview)
     return (
@@ -126,7 +134,7 @@ export default function Home() {
             </p>
             <div className="hero-actions">
               <a className="portfolio-button" href="#projects">
-                Explore my work ↗
+                Explore my work <ExternalArrow />
               </a>
               <a className="resume-link" href={asset("resume/")}>
                 View résumé ↓
@@ -229,11 +237,11 @@ export default function Home() {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          {link.label} ↗
+                          {link.label} <ExternalArrow />
                         </a>
                       )) || (
                         <a href={asset("resume/")}>
-                          Read about my contribution ↗
+                          Read about my contribution <ExternalArrow />
                         </a>
                       )}
                     </div>
@@ -259,7 +267,7 @@ export default function Home() {
                       height="936"
                     />
                     <p>{project.category}</p>
-                    <h4>{project.title} ↗</h4>
+                    <h4>{project.title} <ExternalArrow /></h4>
                   </a>
                 ))}
               </div>
@@ -286,7 +294,7 @@ export default function Home() {
               ))}
             </div>
             <a className="portfolio-button" href={asset("resume/")}>
-              Full experience & résumé ↗
+              Full experience & résumé <ExternalArrow />
             </a>
           </div>
         </section>
@@ -331,7 +339,7 @@ export default function Home() {
                   Opens your email app with a ready-to-send draft.
                 </p>
                 <button className="portfolio-button" type="submit">
-                  Write email ↗
+                  Write email <ExternalArrow />
                 </button>
                 <p role="status" className="form-note">
                   {contactStatus}
@@ -350,7 +358,7 @@ export default function Home() {
                 role in mind? Let’s talk.
               </p>
               <a className="contact-email" href={`mailto:${profile.email}`}>
-                {profile.email} ↗
+                {profile.email} <ExternalArrow />
               </a>
               <div className="social-links">
                 <a
@@ -358,21 +366,21 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  GitHub ↗
+                  GitHub <ExternalArrow />
                 </a>
                 <a
                   href={profile.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  LinkedIn ↗
+                  LinkedIn <ExternalArrow />
                 </a>
                 <a
                   href={profile.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  X ↗
+                  X <ExternalArrow />
                 </a>
               </div>
               <p className="location">
